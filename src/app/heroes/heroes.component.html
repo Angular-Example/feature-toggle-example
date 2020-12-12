@@ -8,4 +8,9 @@
   </li>
 </ul>
 
+<a *ngIf="selectedHero" class="col-1-4" routerLink="/detail/{{selectedHero.id}}">
+  <div class="module hero">
+    <h4>goto detail</h4>
+  </div>
+</a>
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
