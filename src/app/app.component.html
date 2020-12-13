@@ -1,7 +1,8 @@
 <h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<ul class="feature-toggles">
+  <li *ngFor="let featureToggle of featureToggles"
+      [ngClass]="{'enabled' : featureToggle.active, 'disabled' : !featureToggle.active}">
+    <span class="badge">{{featureToggle.name}}</span>
+    <input type="checkbox" [checked]="featureToggle.active" (change)="toggleFeature(featureToggle.name)"/>
+  </li>
+</ul>
